@@ -20,6 +20,6 @@ const login = (req, res) => {
 
 app.post('/login', login)
 
-app.listen(3000, function () {
+app.listen(3000, '0.0.0.0', function () {
   console.log('Example app listening on port 3000!')
 });
