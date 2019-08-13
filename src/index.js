@@ -6,20 +6,22 @@ const whitelist = require('./whitelist')
 const app = express();
 app.use(bodyParser.json())
 
-const finish = (res, status) => {
+const finish = (req, res, status) => {
   res.status(status)
   res.end()
+  console.log('Finishing with status', status, 'body', req.body);
 }
 
 const login = (req, res) => {
   const body = req.body
 
   if (!body || !body.username) {
-    return finish(res, 400)
+    return finish(req, res, 400)
   }
   const username = body.username
+  console.log('Trying logging', username)
   if (!whitelist.includes(username)) {
-    return finish(res, 401)
+    return finish(req, res, 401)
   }
 
   const claim = { username }
