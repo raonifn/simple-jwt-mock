@@ -14,8 +14,10 @@ const login = (req, res) => {
     return
   }
 
-  const token = jwt.sign({ username: body.username }, { expiresIn: '2h' })
-  res.send({ token })
+  const claim = { username: body.username }
+
+  const token = jwt.sign(claim, { expiresIn: '2h' })
+  res.send({ token, employeeData: claim })
 }
 
 app.post('/login', login)
