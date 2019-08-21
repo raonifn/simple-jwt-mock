@@ -31,7 +31,14 @@ const login = (req, res) => {
   console.log('User logged', claim)
 }
 
+
+const health = (req, res) => {
+  res.send({ ok: true })
+  console.log('<<<< Health Check >>>>')
+}
+
 app.post('/login', login)
+app.get('/health', health)
 
 app.listen(3000, '0.0.0.0', function () {
   console.log('Example app listening on port 3000!')
