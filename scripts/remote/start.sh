@@ -28,4 +28,5 @@ END
 sudo rm /etc/nginx/sites-enabled/default
 sudo nginx -s reload
 
-(nohup npm start) > /dev/null 2>&1 &
+# Is not working well
+# (nohup npm start) > /dev/null 2>&1 &
